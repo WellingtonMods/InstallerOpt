@@ -1304,7 +1304,7 @@ public class Main implements IXposedHookZygoteInit, IXposedHookLoadPackage, IXpo
         if (lpparam.packageName.equals(Common.INSTALLEROPT)) {
             XposedHelpers.findAndHookMethod(
                     Common.INSTALLEROPTACTIVITY, lpparam.classLoader,
-                    "onReceive", bootCompletedHook);
+                    "onReceive" ,  Context.class, Intent.class, bootCompletedHook);
         }
 
         if (Common.ANDROID_PKG.equals(lpparam.packageName)
